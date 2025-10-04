@@ -1,7 +1,7 @@
 package interfaces
 
 // Product interface
-type Butten interface {
+type Batten interface {
 	Render() string
 }
 type Image interface {

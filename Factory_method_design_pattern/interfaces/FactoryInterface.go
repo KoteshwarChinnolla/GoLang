@@ -2,6 +2,6 @@ package interfaces
 
 // Factory interface
 type UI interface {
-	RenderButten() Butten
+	RenderBatten() Batten
 	RenderImage() Image
 }

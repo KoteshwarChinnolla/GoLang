@@ -1,13 +1,13 @@
 package windows
 
 // Concrete Products
-type WindowsButten struct{}
+type WindowsBatten struct{}
 type WindowsImage struct{}
 
 func (s *WindowsImage) Render() string {
-	return "Rendering a windows image"
+	return "Windows logic for rendering images"
 }
 
-func (s *WindowsButten) Render() string {
-	return "Rendering a windows butten"
+func (s *WindowsBatten) Render() string {
+	return "Windows logic for rendering Batten"
 }

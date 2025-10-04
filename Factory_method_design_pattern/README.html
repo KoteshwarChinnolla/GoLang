@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Factory Method Design Pattern</title>
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h2 id="factory-method-design-pattern">Factory Method Design Pattern</h2>
+  <p>Lets us have a small real time uncase to understand <strong>Factory Method Design Pattern</strong></p>
+  <p>Let say we have two Different OS <strong>Mac</strong> and <strong>windows</strong> they decided to show the UI on
+    the screen to the users. Obviously Windows has its own way of presenting Images and Battens and mac has its own way.
+    To have a synchronization, Implementation needs to be same. Such that if a person have to see a webpage they need
+    not to interact in different ways in different operating systems right. To maintain this we are now going to look at
+    how Factory method design pattern solves this problem.</p>
+  <p><img src="assets/Factory.png" alt="Alt Text" title="Architecture"></p>
+  <h3 id="concrete-class-concretclassgo">Concrete Class (ConcretClass.go)</h3>
+  <p>Lets us consider main.go has a Client, FMDP concept is very simple it just exposes the concert class which return
+    the actual class according to the user requirements. This ConcretClass in our case is responsible for checking what
+    particular OS the Client is using and based on that it return us a factory.</p>
+  <h3 id="abstract-factory--interfacesfactoryinterfacego">Abstract Factory ( interfaces/FactoryInterface.go)</h3>
+  <p>Abstract Factory lets client understand what all Functions we can perform using the Factory Class returned by the
+    Concrete Class. It contain the set of predefined abstract functions, that must be performed by the Factory Class. In
+    our case our theme is all about rendering ui and functions are RenderImage and RenderBatten there can be more but
+    for simplicity i have defined this two. tomorrow a new factory comes like ubuntu or any other they must look at the
+    abstract Factory interface and implement those functions. Here the work of developers became simple ans also the
+    Clients.</p>
+  <h3 id="factory-class-windowswindowsfactorygo-macmacfactorygo">Factory Class (windows/WindowsFactory.go,
+    mac/MacFactory.go)</h3>
+  <p>Factory Classes is the place where all the functions that are defined in the Abstract Factory are implemented. In
+    our case we have two factory's Windows and Mac. In GoLang we can use struct as a class. So now we have
+    WindowsFactory struct and MacFactory struct. Both of this have RenderImage and RenderBatten functions.</p>
+  <h3 id="product-interfaces-interfacesproductinterfacesgo">Product Interfaces (interfaces/ProductInterfaces.go)</h3>
+  <p>As we just discussed weather it is windows or mac a batten must click and image must view. So Product interfaces
+    defines that structure. For simplicity we just made the output as string but in real scenarios there can be
+    something like onClick, hover, color, height, width etc.. and images interface is different from batten interface.
+    product interface gives a set of functions that needs to be implemented by products(Battens, Images etc..)</p>
+  <h3 id="concrete-factory-products">Concrete Factory Products</h3>
+  <p>If you look at the Return types of the abstract functions defined in the Factory Class, this are factory products
+    interfaces which is actually implemented by product classes. Everything Function that is defined under Product
+    Interface must be implemented by Factory Products. In case of Windows we have WindowsImage and WindowsBatten returns
+    product interfaces like Images and Battens.</p>
+  <pre><code class="language-go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+	WindowsUI := UIrendering(<span class="hljs-string">&quot;windows&quot;</span>)
+	MacUI := UIrendering(<span class="hljs-string">&quot;Mac&quot;</span>)
+	fmt.Println(WindowsUI.RenderImage().Render())
+	fmt.Println(WindowsUI.RenderBatten().Render())
+	fmt.Println(MacUI.RenderImage().Render())
+	fmt.Println(MacUI.RenderBatten().Render())
+}
+</code></pre>
+  <p>The flow is like UIrendering is a concrete class that returns a Factory interface (return Type ui), this UI has set
+    of Functions like RenderImage and RenderBatten. Render gives factory specific implication.</p>
+
+
+
+</body>
+
+</html>
