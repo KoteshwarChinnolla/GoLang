@@ -1,4 +1,4 @@
-package main
+package interfaces
 
 // Factory interface
 type UI interface {

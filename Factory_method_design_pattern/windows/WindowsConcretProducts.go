@@ -1,4 +1,4 @@
-package main
+package windows
 
 // Concrete Products
 type WindowsButten struct{}

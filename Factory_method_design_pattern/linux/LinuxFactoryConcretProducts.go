@@ -1,4 +1,4 @@
-package main
+package linux
 
 type LinuxButten struct{}
 type LinuxImage struct{}

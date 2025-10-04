@@ -1,4 +1,4 @@
-package main
+package interfaces
 
 // Product interface
 type Butten interface {
