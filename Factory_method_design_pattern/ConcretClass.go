@@ -2,7 +2,7 @@ package main
 
 import (
 	"Factory_method_design_pattern/interfaces"
-	"Factory_method_design_pattern/Mac"
+	"Factory_method_design_pattern/mac"
 	"Factory_method_design_pattern/windows"
 	"fmt"
 )
@@ -14,7 +14,7 @@ func UIrendering(os string) interfaces.UI {
 		fmt.Println("windows")
 		return &windows.WindowsFactory{}
 	case "Mac":
-		return &Mac.MacFactory{}
+		return &mac.MacFactory{}
 	}
 	return nil
 }

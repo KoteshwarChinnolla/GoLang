@@ -1,12 +1,12 @@
-package Mac
+package mac
 
 type MacBatten struct{}
 type MacImage struct{}
 
 func (s *MacImage) Render() string {
-	return "Rendering a Mac image"
+	return "Mac logic for rendering image"
 }
 
 func (s *MacBatten) Render() string {
-	return "Rendering a Mac Batten"
+	return "Mac Logic for rendering Batten"
 }

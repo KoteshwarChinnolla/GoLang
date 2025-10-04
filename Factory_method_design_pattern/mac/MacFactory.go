@@ -1,4 +1,4 @@
-package Mac
+package mac
 
 import (
 	"Factory_method_design_pattern/interfaces"
