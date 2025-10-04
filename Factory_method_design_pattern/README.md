@@ -3,7 +3,7 @@ Lets us have a small real time uncase to understand **Factory Method Design Patt
 
 Let say we have two Different OS **Mac** and **windows** they decided to show the UI on the screen to the users. Obviously Windows has its own way of presenting Images and Battens and mac has its own way. To have a synchronization, Implementation needs to be same. Such that if a person have to see a webpage they need not to interact in different ways in different operating systems right. To maintain this we are now going to look at how Factory method design pattern solves this problem.
 
-![Alt Text](Factory.png "Architecture")
+![Alt Text](assets/Factory.png "Architecture")
 
 ### Concrete Class (ConcretClass.go)
 
