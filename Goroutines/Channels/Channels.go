@@ -17,7 +17,7 @@ func makingEntriesIntoChannels(c *chan int) {
 func main() {
 	c := make(chan int, 2)
 	go makingEntriesIntoChannels(&c)
-	// Scanning for Values to be entered into the channel
+	// Scanning for Values to be entered into the channel, main go routine taking from the channel until it close, if it doest close then it will be a deadlock error
 	for v := range c {
 		fmt.Println("first Channel", v)
 		time.Sleep(time.Second * 1)
@@ -28,3 +28,16 @@ func main() {
 		time.Sleep(time.Second * 1)
 	}
 }
+
+// Output
+// first Channel 0
+// first Channel 0
+// first Channel 1
+// first Channel 2
+// first Channel 2
+// first Channel 4
+// first Channel 3
+// first Channel 6
+// closing channel
+// first Channel 4
+// first Channel 8
