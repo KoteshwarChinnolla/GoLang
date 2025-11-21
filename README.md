@@ -1,9 +1,9 @@
-# 📁 GoLang Repository – Index
+# GoLang Repository – Index
 
 Welcome to the **GoLang** repository!
 Below is a clean, navigable index of all directories and submodules.
 
-## 📦 Repository Structure
+## Repository Structure
 
 ### 1. **Factory Method Design Pattern**
 
