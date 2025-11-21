@@ -75,18 +75,3 @@ Http
   * [`tls_keys`](https://github.com/KoteshwarChinnolla/GoLang/tree/main/Http/tls_keys)
 
 ---
-
-### ⭐ Repository Root
-
-🔗 **Repo link:**
-[https://github.com/KoteshwarChinnolla/GoLang](https://github.com/KoteshwarChinnolla/GoLang)
-
----
-
-If you want, I can also generate:
-
-✅ A README.md file with this content
-✅ Badges (Go version, license, build, etc.)
-✅ Section descriptions for each submodule
-
-Just tell me!
